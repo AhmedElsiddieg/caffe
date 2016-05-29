@@ -9,6 +9,8 @@ Guide for Ubuntu 14.04 with a 64 bit processor.
 
 Tested on a Dell XPS laptop with a NVIDIA GeForce GT 525m and a Desktop PC with a NVIDIA GeForce GTX 580.
 
+Tested on HP Envy dv7 laptop with NVIDIA Geforce GT 630M.
+
 This guide is intended to be a (sort of) comprehensive step by step tutorial, including the installation of external dependencies.
 
 This tutorial assumes some decisions about the versions and programs to install, to make it as straightforward to follow as possible, while still having as much advanced features as possible.
@@ -342,6 +344,10 @@ Configure and compile Caffe
         mkdir ~/anaconda/lib/libm.orig.d
         mv ~/anaconda/lib/libm.* ~/anaconda/lib/libm.orig.d
 
+**To be able to use your GPU(i.e not CPU_ONLY) (Tried on NVIDIA Geforce GT 630M) you need to have the package nvidia-modprobe otherwise you'll get an error: "Check failed:error==cudaSuccess (30 vs. 0) unknown error" when running the tests.  
+        
+        sudo apt-get install nvidia-modprobe
+        
 * Build Caffe:
 
         make all -j $(($(nproc) + 1))
